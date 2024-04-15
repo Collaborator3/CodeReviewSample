@@ -15,8 +15,6 @@ export class MyComponent implements OnInit {
   constructor(private apiService: ApiService, private toasterService: ToasterService) {}
 
   ngOnInit() {
-    // Separate multiple HTTP requests
-
     this.apiService.getStudents().subscribe(
       response => {
         this.students = response;
