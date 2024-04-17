@@ -24,5 +24,4 @@ export class MyComponent implements OnInit {
       error => this.toasterService.error(error)
     );
   }
-
 }
