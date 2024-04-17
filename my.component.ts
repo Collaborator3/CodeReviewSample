@@ -12,25 +12,16 @@ export class MyComponent implements OnInit {
   students: any;
   subjects: any;
 
-  constructor(private apiService: ApiService, private toasterService: ToasterService) {}
+  constructor(private apiService: ApiService, private toasterService: ToasterService) { }
 
   ngOnInit() {
     this.apiService.getStudents().subscribe(
-      response => {
-        this.students = response;
-        this.updateStudentList();
-      }, error => {
-        this.toasterService.error(error);
-      }
+      response => this.students = response,
+      error => this.toasterService.error(error)
     );
-
     this.apiService.getSubjects().subscribe(
-        response => {
-          this.subjects = response;
-          this.addSubjects();
-        }, error => {
-          this.toasterService.error(error);
-        }
+      response => this.subjects = response,
+      error => this.toasterService.error(error)
     );
   }
 
